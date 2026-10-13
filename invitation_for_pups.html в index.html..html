@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff2f7">
+<title>Пупс, это официальное приглашение 💌</title>
+<style>
+:root{--pink:#f6b7cf;--hot:#d9578b;--pale:#fff3f8;--ink:#63364a;--cream:#fffafc;--line:#f2c9da}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 12% 12%,#ffe1ed 0,transparent 30%),radial-gradient(circle at 88% 80%,#f8d7e5 0,transparent 28%),#fff8fb;color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,-apple-system,sans-serif;overflow-x:hidden}
+button,input{font:inherit}
+button{cursor:pointer}
+.page{min-height:100vh;display:grid;place-items:center;padding:24px 14px;position:relative;isolation:isolate}
+.card{width:min(100%,490px);background:rgba(255,250,252,.93);border:1px solid #f5d5e2;border-radius:28px;box-shadow:0 18px 60px #bc5b8020;padding:clamp(22px,6vw,38px);text-align:center;position:relative;overflow:hidden}
+.tiny{font-size:.77rem;letter-spacing:.18em;text-transform:uppercase;color:#bd7895}
+h1{font-family:Georgia,serif;font-size:clamp(2rem,8vw,3.1rem);line-height:1.06;margin:14px 0;color:#a83f70;font-weight:normal}
+p{line-height:1.65;margin:10px 0}
+.heart{font-size:2.4rem;display:inline-block;animation:heartbeat 1.4s infinite}
+.bow{font-size:2.5rem;display:block;margin-bottom:8px}
+.primary,.secondary{border:0;border-radius:999px;padding:13px 20px;transition:transform .2s,box-shadow .2s}
+.primary{background:linear-gradient(135deg,#e87eaa,#c9497f);color:white;box-shadow:0 8px 20px #d9578b35}
+.secondary{background:#fff;color:#a34470;border:1px solid var(--line)}
+.primary:hover,.secondary:hover{transform:translateY(-2px)}
+.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:24px}
+.envelope{width:170px;height:118px;margin:28px auto 18px;position:relative;cursor:pointer;filter:drop-shadow(0 12px 12px #c85a8425);animation:float 3s ease-in-out infinite}
+.env-body{position:absolute;inset:0;background:#f3a9c5;border-radius:7px;overflow:hidden}
+.env-body:before,.env-body:after{content:"";position:absolute;bottom:0;width:0;height:0;border-style:solid}
+.env-body:before{left:0;border-width:0 85px 70px 0;border-color:transparent transparent #e88fb3 transparent}
+.env-body:after{right:0;border-width:0 0 70px 85px;border-color:transparent transparent #dc7ea5 transparent}
+.flap{position:absolute;top:0;left:0;width:0;height:0;border-left:85px solid transparent;border-right:85px solid transparent;border-top:70px solid #f8c2d6;transform-origin:top;transition:transform .7s;z-index:3}
+.seal{position:absolute;z-index:4;left:calc(50% - 18px);top:43px;width:36px;height:36px;border-radius:50%;background:#fff0f6;color:#d34f86;display:grid;place-items:center;font-size:20px;transition:opacity .3s}
+.paper{position:absolute;z-index:2;left:15px;right:15px;bottom:8px;height:90px;background:#fffafc;border-radius:5px;transition:transform .7s;display:grid;place-items:center;color:#ce6b94;font-family:Georgia,serif;font-size:1.4rem}
+.envelope.open .flap{transform:rotateX(180deg);z-index:1}
+.envelope.open .paper{transform:translateY(-70px)}
+.envelope.open .seal{opacity:0}
+.hidden{display:none!important}
+.note{font-size:.9rem;color:#9e6b81}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}
+.choice{border:1px solid var(--line);background:#fff;border-radius:16px;padding:14px 10px;color:#87415f;transition:.2s}
+.choice.selected{background:#ffe2ee;border-color:#d9578b;box-shadow:0 0 0 2px #f5bfd4 inset}
+.datebox{background:#fff3f8;border:1px dashed #e6a8c3;border-radius:18px;padding:15px;margin:18px 0}
+.datebox label{display:block;font-size:.9rem;margin-bottom:8px}
+input[type=date]{border:1px solid #edc0d3;border-radius:12px;padding:10px;background:white;color:#63364a;max-width:100%}
+.footer{font-size:.75rem;color:#b58a9c;margin-top:25px}
+.sparkle{position:fixed;z-index:-1;pointer-events:none;animation:drift linear forwards;opacity:.8}
+.pop{animation:pop .5s both}
+@keyframes heartbeat{0%,100%{transform:scale(1)}12%{transform:scale(1.12)}24%{transform:scale(1)}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+@keyframes drift{from{transform:translateY(105vh) rotate(0);opacity:0}10%{opacity:.8}to{transform:translateY(-15vh) rotate(360deg);opacity:0}}
+@keyframes pop{0%{transform:scale(.92);opacity:0}70%{transform:scale(1.02)}100%{transform:scale(1);opacity:1}}
+@media(max-width:360px){.choices{grid-template-columns:1fr}.card{padding:22px 18px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<main class="page">
+  <section class="card" id="intro">
+    <span class="tiny">сообщение особой важности</span>
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Открыть конверт">
+      <div class="env-body"></div><div class="paper">для пупса ♡</div><div class="flap"></div><div class="seal">♥</div>
+    </div>
+    <h1>Пупс, открой<br>это немедленно</h1>
+    <p>Тут важное дело. Почти государственная тайна.<br>Ну ладно, просто я хочу тебя кое-куда пригласить 🩷</p>
+    <button class="primary" id="openBtn">Открыть письмо 💌</button>
+    <p class="note">P.S. Отказ рассматривается комиссией из одного котика.</p>
+  </section>
+
+  <section class="card hidden" id="letter">
+    <span class="bow">୨୧</span><span class="tiny">официальный документ</span>
+    <h1>Приглашение<br>для пупса</h1>
+    <p>Настоящим уведомляю, что ты подозрительно милый, а я подозрительно хочу провести с тобой время.</p>
+    <p><strong>Поэтому предлагаю сходить на свидание.</strong></p>
+    <p>Дресс-код: быть красивым (у тебя и так получается).<br>Обязательное условие: не скучать и дать мне украсть хотя бы один обнимательный момент.</p>
+    <div class="actions"><button class="primary" id="toQuestion">Перейти к главному вопросу →</button></div>
+  </section>
+
+  <section class="card hidden" id="question">
+    <span class="heart">♡</span>
+    <span class="tiny">вопрос, от которого зависит судьба человечества</span>
+    <h1>Пупс, пойдёшь<br>со мной на свидание?</h1>
+    <p>Подумай хорошенько. На кону вкусняшки, прогулка и моё довольное лицо.</p>
+    <div class="actions">
+      <button class="primary" id="yesBtn">ДА, КОНЕЧНО 💗</button>
+      <button class="secondary" id="thinkBtn">Мне надо подумать 🤔</button>
+    </div>
+    <p class="note" id="hint" aria-live="polite"></p>
+  </section>
+
+  <section class="card hidden" id="date">
+    <span class="bow">🎀</span><span class="tiny">отличный выбор, пупс</span>
+    <h1>Урааа! 💞</h1>
+    <p>Теперь выбери, когда мы устроим это великолепное мероприятие.</p>
+    <div class="datebox">
+      <label for="meetDate">Предлагаю выбрать дату вместе:</label>
+      <input id="meetDate" type="date">
+    </div>
+    <p class="note">Место и время решим вместе — без экзамена и собеседования 😌</p>
+    <button class="primary" id="confirmBtn">Зафиксировать свидание 💌</button>
+    <p class="note" id="confirmNote" aria-live="polite"></p>
+    <div class="actions"><button class="secondary" id="restartBtn">Прочитать ещё раз ↺</button></div>
+  </section>
+</main>
+<script>
+const sections = ["intro","letter","question","date"].map(id=>document.getElementById(id));
+function show(id){sections.forEach(s=>s.classList.toggle("hidden",s.id!==id));const card=document.getElementById(id);card.classList.remove("pop");void card.offsetWidth;card.classList.add("pop");window.scrollTo({top:0,behavior:"smooth"});}
+const envelope=document.getElementById("envelope");
+function openLetter(){envelope.classList.add("open");setTimeout(()=>show("letter"),500);}
+document.getElementById("openBtn").addEventListener("click",openLetter);
+envelope.addEventListener("click",openLetter);
+envelope.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openLetter();}});
+document.getElementById("toQuestion").addEventListener("click",()=>show("question"));
+document.getElementById("thinkBtn").addEventListener("click",()=>{document.getElementById("hint").textContent="Комиссия рассмотрела запрос… и постановила: подумай ещё раз, пупс 😌";});
+document.getElementById("yesBtn").addEventListener("click",()=>{show("date");confetti();});
+document.getElementById("confirmBtn").addEventListener("click",()=>{
+ const input=document.getElementById("meetDate"), note=document.getElementById("confirmNote");
+ if(!input.value){note.textContent="Выбери дату выше — и свидание официально почти назначено!";input.focus();return;}
+ const d=new Date(input.value+"T12:00:00");
+ note.textContent="Записано: "+d.toLocaleDateString("ru-RU",{day:"numeric",month:"long",year:"numeric"})+". Осталось согласовать время и место вместе 💗";
+ confetti();
+});
+document.getElementById("restartBtn").addEventListener("click",()=>{envelope.classList.remove("open");document.getElementById("hint").textContent="";document.getElementById("confirmNote").textContent="";show("intro");});
+function confetti(){const icons=["♡","♥","✦","୨୧","✿"];for(let i=0;i<28;i++){const el=document.createElement("span");el.className="sparkle";el.textContent=icons[Math.floor(Math.random()*icons.length)];el.style.left=Math.random()*100+"vw";el.style.fontSize=(14+Math.random()*20)+"px";el.style.color=["#d9578b","#ef9fbd","#b879cf","#f0b84e"][Math.floor(Math.random()*4)];el.style.animationDuration=(3+Math.random()*3)+"s";document.body.appendChild(el);setTimeout(()=>el.remove(),6500);}}
+</script>
+</body>
+</html>
